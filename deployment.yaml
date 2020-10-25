@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: healthapp-deployment
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: healthapp
+    template:
+        metadata:
+            labels:
+                app: healthapp
+        spec:
+          containers:
+          - name: healthapp
+            image: vitalyusov/healthapp:0.1
+            ports: 
+              - containerPort: 8000
